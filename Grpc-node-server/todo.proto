@@ -1,23 +1,23 @@
 syntax = "proto3";
 
 service TodoService {
-    rpc CreateTodo(Todo) return (Todo){};
-    rpc GetTodo (TodoRequest) return (Todo){};
-    rpc ListTodos (Empty) return (TodoList){};
+    rpc CreateTodo (Todo) returns (Todo) {}
+    rpc GetTodo (TodoRequest) returns (Todo) {}
+    rpc ListTodos (Empty) returns (TodoList) {}
 }
 
-message Empty{}
+message Empty {}
 
-message Todo{
-    string id= 1;
+message Todo {
+    string id = 1;
     string title = 2;
-    optional string description = 3;
+    optional string content = 3;
 }
 
-message TodoList{
+message TodoList {
     repeated Todo todos = 1;
 }
 
-message TodoRequest{
-   optional string id = 1;
-} 
+message TodoRequest {
+    string id = 1;
+}
